@@ -7,12 +7,12 @@
     <h2>Click Counter</h2>
     <p id="counter">0</p>
 
-    <button type="button" value="clickMe" onclick="increase()" >Click Me</button>
+    <button type="button" value="clickMe" onclick="increase(1)" >Click Me</button>
 
     <script>
     let count = 0;
 
-    function increase() {
+    function increase(numb) {
       count++;
       document.getElementById("counter").textContent = count;
     }
