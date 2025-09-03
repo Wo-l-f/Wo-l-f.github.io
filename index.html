@@ -5,5 +5,14 @@
 
 <body>
 
-    <button type="button" value="clickMe">Click Me</button>
+    <button type="button" value="clickMe" onclick="increase()" >Click Me</button>
+
+    <script>
+    let count = 0;
+
+    function increase() {
+      count++;
+      document.getElementById("counter").textContent = count;
+    }
+  </script>
 </body>
