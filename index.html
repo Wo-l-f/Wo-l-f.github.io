@@ -8,6 +8,8 @@
 
     <button onclick="buysmth('Cat')">buy cat 5$</button>
 
+    <button onclick="buysmth('Chest')">buy chest 50$</button>
+
     <br>
     <br>
 
@@ -25,6 +27,13 @@
                     chancevalue(1, 'hapiness')
                 }
             }
+
+            if(item == "Chest") {
+
+                if(chancevalue(-50, 'money') == true){
+                    chancevalue(15, 'maxmoney')
+                }
+            }
         }
 
         function chancevalue(numb, stat) {
@@ -40,6 +49,14 @@
             }
 
             return succes;
+        }
+
+        function gameCheck() {
+            if(money > maxmoney){
+                money = maxmoney;
+            }
+
+            updateCounter();
         }
 
         function updateCounter() {
