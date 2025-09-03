@@ -6,7 +6,7 @@
 <body>
     <p id="counter">money: 0, happiness: 0</p>
 
-    <button onclick="chancevalue(1, 'hapiness')">buy cat 5$</button>
+    <button onclick="buysmth('Cat')">buy cat 5$</button>
 
     <br>
     <br>
@@ -16,6 +16,15 @@
     <script>
         var money = 0;
         var hapiness = 0;
+
+        function buysmth(item) {
+            if(item == "Cat") {
+
+                if(chancevalue(numb, stat) == true){
+                    chancevalue(1, 'hapiness')
+                }
+            }
+        }
 
         function chancevalue(numb, stat) {
             let succes = true;
