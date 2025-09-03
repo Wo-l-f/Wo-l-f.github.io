@@ -71,10 +71,10 @@
 
         setInterval(function() {
             for (let v in statGain) {
-                window[v] = window[v] + statGain[v];
+                window[v] += statGain[v];
             }
 
             gameCheck();
-        }, 1000);
+        }, 100);
     </script>
 </body>
