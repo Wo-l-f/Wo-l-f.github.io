@@ -20,6 +20,12 @@
         var maxmoney = 10;
         var hapiness = 0;
 
+        let statGain = {
+            money: "0.1",
+            hapiness: "0",
+            luck: "0"
+        };
+
         function buysmth(item) {
             if(item == "Cat") {
 
@@ -64,7 +70,10 @@
         }
 
         setInterval(function() {
-            money++;
+            for (let v in statGain) {
+                statGain[v] = window[v] + statGain[v];
+            }
+
             gameCheck();
         }, 1000);
     </script>
