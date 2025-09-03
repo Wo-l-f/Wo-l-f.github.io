@@ -4,7 +4,7 @@
 </head>
 
 <body>
-    <p id="counter">money: 0, happiness: 0</p>
+    <p id="counter">x</p>
 
     <button onclick="buysmth('Cat')">buy cat 5$</button>
 
@@ -15,6 +15,7 @@
 
     <script>
         var money = 0;
+        var maxmoney = 10;
         var hapiness = 0;
 
         function buysmth(item) {
@@ -35,7 +36,7 @@
             }else{
 
                 window[stat] += numb;
-                document.getElementById("counter").textContent = 'money: ' + money + ', happiness: ' + hapiness;   
+                document.getElementById("counter").textContent = 'money: ' + money + '/' + maxmoney + ', happiness: ' + hapiness;   
             }
 
             return succes;
