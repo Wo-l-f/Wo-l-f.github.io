@@ -36,10 +36,19 @@
             }else{
 
                 window[stat] += numb;
-                document.getElementById("counter").textContent = 'money: ' + money + '/' + maxmoney + ', happiness: ' + hapiness;   
+                updateCounter();
             }
 
             return succes;
         }
+
+        function updateCounter() {
+            document.getElementById("counter").textContent = 'money: ' + money + '/' + maxmoney + ', happiness: ' + hapiness;   
+        }
+
+        setInterval(function() {
+            money++;
+            updateCounter();
+        }, 1000);
     </script>
 </body>
