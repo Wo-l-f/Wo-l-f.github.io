@@ -8,7 +8,7 @@
 
     <button onclick="buysmth('Cat')">buy cat 5$</button>
 
-    <button onclick="buysmth('Chest')">buy chest 50$</button>
+    <button onclick="buysmth('Chest')">buy chest 10$</button>
 
     <br>
     <br>
@@ -30,7 +30,7 @@
 
             if(item == "Chest") {
 
-                if(chancevalue(-50, 'money') == true){
+                if(chancevalue(-10, 'money') == true){
                     chancevalue(15, 'maxmoney')
                 }
             }
@@ -45,7 +45,7 @@
             }else{
 
                 window[stat] += numb;
-                updateCounter();
+                gameCheck();
             }
 
             return succes;
@@ -65,7 +65,7 @@
 
         setInterval(function() {
             money++;
-            updateCounter();
+            gameCheck();
         }, 1000);
     </script>
 </body>
