@@ -17,23 +17,20 @@
         let money = 0;
         let hapiness = 0;
 
-        function chancevalue(numb, slctvalue) {
+        function chancevalue(numb, slctvalueN) {
             Succes = true;
+            slctvalueobj = money;
 
-            if(slctvalue == "money"){
-                slctvalue = money
+            if(slctvalueN == "hapiness"){
+                slctvalueobj = hapiness;
             }
 
-            if(slctvalue == "hapiness"){
-                slctvalue = hapiness
-            }
-
-            if(slctvalue + numb < 0){
+            if(slctvalueobj + numb < 0){
 
                 Succes = false;
             }else{
 
-                slctvalue += numb;
+                slctvalueobj += numb;
                 document.getElementById("counter").textContent = 'money:' + money + ', hapiness: ' + hapiness;   
             }
 
