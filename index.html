@@ -8,15 +8,21 @@
 
     <button type="button" value="clickMe" onclick="increase(-5)" >buy cat 5$</button>
 
-    <button type="button" value="clickMe" onclick="increase(1)" >Click Me</button>
+    <b>
+        <button type="button" value="clickMe" onclick="increase(1)" >Click Me</button>
+    </b>
 
     <script>
         let money = 0;
 
         function increase(numb) {
+            Succes = true;
 
             money += numb;
+
             document.getElementById("counter").textContent = 'money:' + money;
+
+            return Succes;
         }
     </script>
 </body>
