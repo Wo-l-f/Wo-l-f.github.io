@@ -6,26 +6,26 @@
 <body>
     <p id="counter">money: 0, happiness: 0</p>
 
-    <button type="button" value="clickMe" onclick="chancemoney(-5, money)" >buy cat 5$</button>
+    <button type="button" value="clickMe" onclick="chancemoney(-5, 'money')" >buy cat 5$</button>
 
     <br>
     <br>
 
-    <button type="button" value="clickMe" onclick="chancevalue(1, hapiness)" >Click Me</button>
+    <button type="button" value="clickMe" onclick="chancevalue(1, 'hapiness')" >Click Me</button>
 
     <script>
         let money = 0;
         let hapiness = 0;
 
-        function chancevalue(numb, slctvalueN) {
-            Succes = true;
+        function chancevalue(numb, stat) {
+            let succes = true;
 
-            if(slctvalueobj + numb < 0){
+            if(window[stat] + numb < 0){
 
                 Succes = false;
             }else{
 
-                slctvalueobj += numb;
+                window[stat] += numb;
                 document.getElementById("counter").textContent = 'money: ' + money + ', happiness: ' + hapiness;   
             }
 
