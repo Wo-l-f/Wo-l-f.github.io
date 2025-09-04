@@ -80,7 +80,7 @@
             document.getElementById("statgaintxt").textContent = 'gains: ';
 
             for (let v in statGain) {
-                document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + Math.floor(statGain[v] *100)/10 + `, `
+                document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + Math.floor(statGain[v] *100)/100 + `, `
             }
         }
 
