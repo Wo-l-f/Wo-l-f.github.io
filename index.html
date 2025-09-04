@@ -47,7 +47,7 @@
             if(item == "Worker") {
 
                 if(chancevalue(-50, 'money') == true){
-                    statGain['money'] += .01;
+                    statGain['money'] += 1;
                 }
             }
         }
@@ -80,13 +80,13 @@
             document.getElementById("statgaintxt").textContent = 'gains: ';
 
             for (let v in statGain) {
-                document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + Math.floor(statGain[v]) + `, `
+                document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + Math.floor(statGain[v] *100)/10 + `, `
             }
         }
 
         setInterval(function() {
             for (let v in statGain) {
-                window[v] += statGain[v];
+                window[v] += (statGain[v] /100);
             }
 
             gameCheck();
