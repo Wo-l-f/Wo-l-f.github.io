@@ -77,10 +77,10 @@
 
         function updateCounter() {
             document.getElementById("counter").textContent = 'money: ' + money + '/' + maxmoney + ', happiness: ' + hapiness;
-            document.getElementById("statgaintxt").textContent = '';
+            document.getElementById("statgaintxt").textContent = 'gains: ';
 
             for (let v in statGain) {
-                document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v;
+                document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + statGain[v] + `, `
             }
         }
 
