@@ -47,7 +47,7 @@
             if(item == "Worker") {
 
                 if(chancevalue(-50, 'money') == true){
-                    statGain['money'] += .1;
+                    statGain['money'] += .01;
                 }
             }
         }
@@ -76,11 +76,11 @@
         }
 
         function updateCounter() {
-            document.getElementById("counter").textContent = 'money: ' + num.toFixed(money) + '/' + maxmoney + ', happiness: ' + hapiness;
+            document.getElementById("counter").textContent = 'money: ' + Math.floor(money) + '/' + maxmoney + ', happiness: ' + hapiness;
             document.getElementById("statgaintxt").textContent = 'gains: ';
 
             for (let v in statGain) {
-                document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + num.toFixed(statGain[v]) + `, `
+                document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + Math.floor(statGain[v]) + `, `
             }
         }
 
@@ -90,6 +90,6 @@
             }
 
             gameCheck();
-        }, 100);
+        }, 10);
     </script>
 </body>
