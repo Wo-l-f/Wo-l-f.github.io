@@ -10,6 +10,8 @@
 
     <button onclick="buysmth('Chest')">buy chest 10$</button>
 
+    <button onclick="buysmth('Worker')">buy worker 50$</button>
+
     <br>
     <br>
 
@@ -21,7 +23,7 @@
         var hapiness = 0;
 
         let statGain = {
-            money: 0.1,
+            money: 0,
             hapiness: 0,
             luck: 0
         };
@@ -38,6 +40,13 @@
 
                 if(chancevalue(-10, 'money') == true){
                     chancevalue(15, 'maxmoney')
+                }
+            }
+
+            if(item == "Worker") {
+
+                if(chancevalue(-50, 'money') == true){
+                    statGain[money] += .1
                 }
             }
         }
