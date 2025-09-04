@@ -5,6 +5,7 @@
 
 <body>
     <p id="counter" >x</p>
+    <p id="statgaintxt" >x</p>
 
     <button onclick="buysmth('Cat')">buy cat 5$</button>
 
@@ -75,8 +76,12 @@
         }
 
         function updateCounter() {
-            document.getElementById("counter").textContent = 'money: ' + money + '/' + maxmoney + ', happiness: ' + hapiness;   
-        }
+            document.getElementById("counter").textContent = 'money: ' + money + '/' + maxmoney + ', happiness: ' + hapiness;
+            document.getElementById("statgaintxt").textContent = '';
+
+            for (let v in statGain) {
+                document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v;
+            }
 
         setInterval(function() {
             for (let v in statGain) {
