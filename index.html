@@ -33,8 +33,6 @@
         };
 
         function buysmth(item, button) {
-            button.remove();
-
             if(item == "Cat") {
 
                 if(chancevalue(-5, 'money') == true){
@@ -125,7 +123,7 @@
             btn.textContent = text;
 
             btn.onclick = function() {
-                buysmth(itemName), btn;
+                buysmth(itemName, btn);
             };
 
             document.getElementById("shop").appendChild(btn);
