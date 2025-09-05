@@ -9,14 +9,13 @@
     <p id="counter" >x</p>
     <p id="statgaintxt" >x</p>
 
+    shop
+    
     <div id="shop"></div>
 
-    <button onclick="buysmth('Worker')">buy worker 50$</button>
-
-    <button onclick="buysmth('Forest', this)">buy a forest 500$</button>
-
     <br>
-    <br>
+
+    abilities
 
     <button onclick="chancevalue(1, 'money')">Click Me</button>
 
@@ -99,6 +98,8 @@
 
         createNewMarketButton("buy a cat 5$", "Cat")
         createNewMarketButton("buy chest 10$", "Chest")
+        createNewMarketButton("buy chest 50$", "Worker")
+        createNewMarketButton("buy chest 500$", "Forest")
 
         function createNewMarketButton(text, itemName) {
             let btn = document.createElement("button");
