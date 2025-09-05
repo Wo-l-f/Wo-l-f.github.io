@@ -17,6 +17,8 @@
 
     <button onclick="buysmth('Worker')">buy worker 50$</button>
 
+    <button onclick="buysmth('Forest')">buy a forest 500$</button>
+
     <br>
     <br>
 
@@ -26,11 +28,13 @@
         var money = 0;
         var maxmoney = 10;
         var hapiness = 0;
+        var wood = 0;
 
         let statGain = {
             money: 0,
             hapiness: 0,
-            luck: 0
+            luck: 0,
+            wood: 0
         };
 
         function buysmth(item) {
