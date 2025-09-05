@@ -68,8 +68,6 @@
                 if(chancevalue(-120, 'money') == true){
                     statGain['wood'] += .1;
                 }
-
-                button.remove();
             }
         }
 
@@ -116,7 +114,7 @@
             btn.textContent = text;
 
             btn.onclick = function() {
-                buysmth(itemName);
+                buysmth(itemName), btn;
             };
 
             document.getElementById("shop").appendChild(btn);
