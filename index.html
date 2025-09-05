@@ -11,6 +11,8 @@
 
     <div id="shop"></div>
 
+    <div id="shop"></div>
+
     <button onclick="buysmth('Cat')">buy cat 5$</button>
 
     <button onclick="buysmth('Chest')">buy chest 10$</button>
@@ -58,6 +60,13 @@
                     statGain['money'] += 1;
                 }
             }
+
+            if(item == "Forest") {
+
+                if(chancevalue(-500, 'money') == true){
+                    createNewMarketButton('buy lumberjack 120$', 'Lumberjack');
+                }
+            }
         }
 
         function chancevalue(numb, stat) {
@@ -90,6 +99,18 @@
             for (let v in statGain) {
                 document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + Math.floor(statGain[v] *100)/100 + `, `
             }
+        }
+
+        function createNewMarketButton(text, itemName) {
+            let btn = document.createElement("button");
+
+            btn.textContent = text;
+
+            btn.onclick = function() {
+                buysmth(itemName);
+            };
+            
+            document.getElementById("shop").appendChild(btn);
         }
 
         setInterval(function() {
