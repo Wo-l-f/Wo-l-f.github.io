@@ -19,7 +19,7 @@
 
     <button onclick="buysmth('Worker')">buy worker 50$</button>
 
-    <button onclick="buysmth('Forest')">buy a forest 500$</button>
+    <button onclick="buysmth('Forest', this)">buy a forest 500$</button>
 
     <br>
     <br>
@@ -33,13 +33,13 @@
         var wood = 0;
 
         let statGain = {
-            money: 0,
+            money: 20,
             hapiness: 0,
             luck: 0,
             wood: 0
         };
 
-        function buysmth(item) {
+        function buysmth(item, button) {
             if(item == "Cat") {
 
                 if(chancevalue(-5, 'money') == true){
@@ -66,6 +66,8 @@
                 if(chancevalue(-500, 'money') == true){
                     createNewMarketButton('buy lumberjack 120$', 'Lumberjack');
                 }
+
+                button.remove();
             }
         }
 
@@ -109,7 +111,7 @@
             btn.onclick = function() {
                 buysmth(itemName);
             };
-            
+
             document.getElementById("shop").appendChild(btn);
         }
 
