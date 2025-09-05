@@ -62,6 +62,15 @@
 
                 button.remove();
             }
+
+            if(item == "Lumberjack") {
+
+                if(chancevalue(-120, 'money') == true){
+                    statGain['wood'] += .1;
+                }
+
+                button.remove();
+            }
         }
 
         function chancevalue(numb, stat) {
@@ -99,7 +108,7 @@
         createNewMarketButton("buy a cat 5$", "Cat")
         createNewMarketButton("buy chest 10$", "Chest")
         createNewMarketButton("buy chest 50$", "Worker")
-        createNewMarketButton("buy chest 500$", "Forest")
+        createNewMarketButton("buy forest 500$", "Forest")
 
         function createNewMarketButton(text, itemName) {
             let btn = document.createElement("button");
