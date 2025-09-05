@@ -33,6 +33,8 @@
         };
 
         function buysmth(item, button) {
+            button.remove();
+
             if(item == "Cat") {
 
                 if(chancevalue(-5, 'money') == true){
@@ -104,11 +106,11 @@
             document.getElementById("counter").textContent = 'money: ' + Math.floor(money) + '/' + maxmoney;
 
             if(hapiness > 0){
-                document.getElementById("counter").textContent = document.getElementById("counter").textContent + ', happiness: ' + hapiness
+                document.getElementById("counter").textContent = document.getElementById("counter").textContent + ', happiness: ' + Math.floor(hapiness)
             }
 
             if(wood > 0){
-                document.getElementById("counter").textContent = document.getElementById("counter").textContent + ', wood: ' + wood
+                document.getElementById("counter").textContent = document.getElementById("counter").textContent + ', wood: ' + Math.floor(wood)
             }
         }
 
