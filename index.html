@@ -11,12 +11,6 @@
 
     <div id="shop"></div>
 
-    <div id="shop"></div>
-
-    <button onclick="buysmth('Cat')">buy cat 5$</button>
-
-    <button onclick="buysmth('Chest')">buy chest 10$</button>
-
     <button onclick="buysmth('Worker')">buy worker 50$</button>
 
     <button onclick="buysmth('Forest', this)">buy a forest 500$</button>
@@ -102,6 +96,9 @@
                 document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + Math.floor(statGain[v] *100)/100 + `, `
             }
         }
+
+        createNewMarketButton("buy a cat 5$", "Cat")
+        createNewMarketButton("buy chest 10$", "Chest")
 
         function createNewMarketButton(text, itemName) {
             let btn = document.createElement("button");
