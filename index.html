@@ -32,7 +32,7 @@
             wood: 0
         };
 
-        let amountBought = {};
+        let buttonsClicked = {};
 
         function buttonEffect(item, button) {
             let moneyOnStart = money
@@ -54,7 +54,7 @@
                 if(chancevalue(-5, 'money') == true){
                     chancevalue(1, 'hapiness')
 
-                    if(amountBought["Cat"] == 4){ //the +1 amount bought is after script so its 5th bought
+                    if(buttonsClicked["Cat"] == 4){ //the +1 amount bought is after script so its 5th bought
                         createNewMarketButton("buy a cat cafe 245$", "CatCafe")
                     }
                 }
@@ -92,11 +92,11 @@
 
             if(moneyOnStart == money){
             } else {
-                if (!(item in amountBought)) {
-                    amountBought[item] = 0;
+                if (!(item in buttonsClicked)) {
+                    buttonsClicked[item] = 0;
                 }
 
-                amountBought[item] += 1;
+                buttonsClicked[item] += 1;
             }
         }
 
@@ -130,10 +130,10 @@
                 document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + Math.floor(statGain[v] *100)/100 + `, `
             }
 
-            document.getElementById("btnstext").textContent = 'bought: ';
+            document.getElementById("btnstext").textContent = 'buttons clicked: ';
 
-            for (let v in amountBought) {
-                document.getElementById("btnstext").textContent = document.getElementById("btnstext").textContent + v + ` = ` + Math.floor(amountBought[v]) + `, `
+            for (let v in buttonsClicked) {
+                document.getElementById("btnstext").textContent = document.getElementById("btnstext").textContent + v + ` = ` + Math.floor(buttonsClicked[v]) + `, `
             }
 
             document.getElementById("counter").textContent = 'money: ' + Math.floor(money) + '/' + maxmoney;
