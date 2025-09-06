@@ -16,7 +16,8 @@
 
     <br>
 
-    abilities
+    abilities:
+    <div id="abilities"></div>
 
     <button onclick="chancevalue(1, 'money')">Click Me</button>
 
@@ -75,6 +76,7 @@
 
                 if(chancevalue(-500, 'money') == true){
                     createNewMarketButton('buy lumberjack 120$', 'Lumberjack');
+                    createNewMarketButton("sell all wood", "Sell wood", "ability")
                     button.remove();
                 }
             }
@@ -83,8 +85,6 @@
 
                 if(chancevalue(-120, 'money') == true){
                     statGain['wood'] += .1;
-
-                    createNewMarketButton("sell all wood", "Sell wood", "Ability")
                 }
             }
 
@@ -150,7 +150,7 @@
         createNewMarketButton("buy worker 50$", "Worker")
         createNewMarketButton("buy forest 500$", "Forest")
 
-        function createNewMarketButton(text, itemName) {
+        function createNewMarketButton(text, itemName, tab) {
             let btn = document.createElement("button");
 
             btn.textContent = text;
@@ -160,6 +160,10 @@
             };
 
             document.getElementById("shop").appendChild(btn);
+
+            if(tab == "ability"){
+                document.getElementById("abilities").appendChild(btn);
+            }
         }
 
         setInterval(function() {
