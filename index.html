@@ -8,6 +8,7 @@
 
     <p id="counter" >x</p>
     <p id="statgaintxt" >x</p>
+    <p id="btnstext" >x</p>
 
     shop
     
@@ -32,7 +33,11 @@
             wood: 0
         };
 
+        let amountBought = {};
+
         function buysmth(item, button) {
+            let moneyOnStart = money
+
             if(item == "Cat") {
 
                 if(chancevalue(-5, 'money') == true){
@@ -69,6 +74,11 @@
                     statGain['wood'] += .1;
                 }
             }
+
+            if(moneyOnStart == money){
+            } else {
+                amountBought[item] += 1;
+            }
         }
 
         function chancevalue(numb, stat) {
@@ -99,6 +109,12 @@
 
             for (let v in statGain) {
                 document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + Math.floor(statGain[v] *100)/100 + `, `
+            }
+
+            document.getElementById("btnstext").textContent = 'bought: ';
+
+            for (let v in amountBought) {
+                document.getElementById("btnstext").textContent = document.getElementById("btnstext").textContent + v + ` = ` + Math.floor(statGain[v] *100)/100 + `, `
             }
 
             document.getElementById("counter").textContent = 'money: ' + Math.floor(money) + '/' + maxmoney;
