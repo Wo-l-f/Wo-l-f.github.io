@@ -38,10 +38,21 @@
         function buysmth(item, button) {
             let moneyOnStart = money
 
+            if(item == "CatCafe") {
+
+                if(chancevalue(-245, 'money') == true){
+                    chancevalue(7, 'hapiness')
+                }
+            }
+
             if(item == "Cat") {
 
                 if(chancevalue(-5, 'money') == true){
                     chancevalue(1, 'hapiness')
+
+                    if(amountBought["Cat"] == 4){ //the +1 amount bought is after script so its 5th bought
+                        createNewMarketButton("buy a cat cafe 245$", "CatCafe")
+                    }
                 }
             }
 
