@@ -117,7 +117,7 @@
             document.getElementById("btnstext").textContent = 'bought: ';
 
             for (let v in amountBought) {
-                document.getElementById("btnstext").textContent = document.getElementById("btnstext").textContent + v + ` = ` + Math.floor(statGain[v] *100)/100 + `, `
+                document.getElementById("btnstext").textContent = document.getElementById("btnstext").textContent + v + ` = ` + Math.floor(statGain[v]) + `, `
             }
 
             document.getElementById("counter").textContent = 'money: ' + Math.floor(money) + '/' + maxmoney;
