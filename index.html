@@ -19,8 +19,6 @@
     abilities:
     <div id="abilities"></div>
 
-    <button onclick="chancevalue(1, 'money')">Click Me</button>
-
     <script>
         var money = 0;
         var maxmoney = 10;
@@ -36,8 +34,12 @@
 
         let amountBought = {};
 
-        function buysmth(item, button) {
+        function buttonEffect(item, button) {
             let moneyOnStart = money
+
+            if(item == "Click me"){
+                chancevalue(1, 'money')
+            }
 
             if(item == "CatCafe") {
 
@@ -150,13 +152,15 @@
         createNewMarketButton("buy worker 50$", "Worker")
         createNewMarketButton("buy forest 500$", "Forest")
 
+        createNewMarketButton("click me", "Click me", "abilities")
+
         function createNewMarketButton(text, itemName, tab) {
             let btn = document.createElement("button");
 
             btn.textContent = text;
 
             btn.onclick = function() {
-                buysmth(itemName, btn);
+                buttonEffect(itemName, btn);
             };
 
             document.getElementById("shop").appendChild(btn);
