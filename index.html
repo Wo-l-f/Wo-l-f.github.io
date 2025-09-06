@@ -33,7 +33,9 @@
             wood: 0
         };
 
-        let amountBought = {};
+        let amountBought = {
+            Cat: 0
+        };
 
         function buysmth(item, button) {
             let moneyOnStart = money
@@ -63,9 +65,8 @@
 
                 if(chancevalue(-500, 'money') == true){
                     createNewMarketButton('buy lumberjack 120$', 'Lumberjack');
+                    button.remove();
                 }
-
-                button.remove();
             }
 
             if(item == "Lumberjack") {
