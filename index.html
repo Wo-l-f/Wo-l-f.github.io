@@ -33,9 +33,7 @@
             wood: 0
         };
 
-        let amountBought = {
-            "Cat": 0
-        };
+        let amountBought = {};
 
         function buysmth(item, button) {
             let moneyOnStart = money
@@ -78,6 +76,10 @@
 
             if(moneyOnStart == money){
             } else {
+                if (!(item in amountBought)) {
+                    amountBought[item] = 0;
+                }
+
                 amountBought[item] += 1;
             }
         }
