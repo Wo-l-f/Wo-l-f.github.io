@@ -37,6 +37,13 @@
         function buttonEffect(item, button) {
             let moneyOnStart = money
 
+            if(item == "Sell wood"){
+                if(Math.floor(wood) > 0){
+                    chancevalue(100 *Math.floor(wood), 'money')
+                    chancevalue(Math.floor(wood), 'wood')
+                }
+            }
+
             if(item == "Click me"){
                 chancevalue(1, 'money')
             }
