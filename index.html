@@ -41,7 +41,7 @@
             if(item == "Sell wood"){
                 if(Math.floor(wood) > 0){
                     chancevalue(100 *Math.floor(wood), 'money')
-                    chancevalue(Math.floor(wood), 'wood')
+                    chancevalue(-Math.floor(wood), 'wood')
                 }
             }
 
