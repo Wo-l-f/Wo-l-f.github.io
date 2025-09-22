@@ -1,13 +1,196 @@
-<!DOCTYPE html>
-
-<html>
+ <!DOCTYPE html>
 
 <head>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    pag2
-</body>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pagina_2.html">pag2</a></li>
+    </ul>
 
-</html>
+    <br>
+
+    <img src="spook.jpeg" width="200" height="200">
+
+    <p id="counter" >x</p>
+    <p id="statgaintxt" >x</p>
+    <p id="btnstext" >x</p>
+
+    shop
+    
+    <div id="shop"></div>
+
+    <br>
+
+    abilities:
+    <div id="abilities"></div>
+
+    <script>
+        var money = 0;
+        var maxmoney = 10;
+        var hapiness = 0;
+        var wood = 0;
+
+        let statGain = {
+            money: 0,
+            hapiness: 0,
+            luck: 0,
+            wood: 0
+        };
+
+        let buttonsClicked = {};
+
+        function buttonEffect(item, button) {
+            let moneyOnStart = money
+
+            if(item == "Sell wood"){
+                if(Math.floor(wood) > 0){
+                    chancevalue(100 *Math.floor(wood), 'money')
+                    chancevalue(-Math.floor(wood), 'wood')
+                }
+            }
+
+            if(item == "Click me"){
+                chancevalue(1, 'money')
+            }
+
+            if(item == "CatCafe") {
+
+                if(chancevalue(-245, 'money') == true){
+                    chancevalue(7, 'hapiness')
+                    statGain['money'] += 6;
+                }
+            }
+
+            if(item == "Cat") {
+
+                if(chancevalue(-5, 'money') == true){
+                    chancevalue(1, 'hapiness')
+
+                    if(buttonsClicked["Cat"] == 4){ //the +1 amount bought is after script so its 5th bought
+                        createNewMarketButton("buy a cat cafe 245$", "CatCafe")
+                    }
+                }
+            }
+
+            if(item == "Chest") {
+
+                if(chancevalue(-10, 'money') == true){
+                    chancevalue(15, 'maxmoney')
+                }
+            }
+
+            if(item == "Worker") {
+
+                if(chancevalue(-50, 'money') == true){
+                    statGain['money'] += 1;
+                }
+            }
+
+            if(item == "Forest") {
+
+                if(chancevalue(-500, 'money') == true){
+                    createNewMarketButton('buy lumberjack 120$', 'Lumberjack');
+                    createNewMarketButton("sell all wood", "Sell wood", "ability")
+                    button.remove();
+                }
+            }
+
+            if(item == "Lumberjack") {
+
+                if(chancevalue(-120, 'money') == true){
+                    statGain['wood'] += .1;
+                }
+            }
+
+            if(moneyOnStart == money){
+            } else {
+                if (!(item in buttonsClicked)) {
+                    buttonsClicked[item] = 0;
+                }
+
+                buttonsClicked[item] += 1;
+            }
+        }
+
+        function chancevalue(numb, stat) {
+            let succes = true;
+
+            if(window[stat] + numb < 0){
+
+                succes = false;
+            }else{
+
+                window[stat] += numb;
+                gameCheck();
+            }
+
+            return succes;
+        }
+
+        function gameCheck() {
+            if(money > maxmoney){
+                money = maxmoney;
+            }
+
+            updateCounter();
+        }
+
+        function updateCounter() {
+            document.getElementById("statgaintxt").textContent = 'gains: ';
+
+            for (let v in statGain) {
+                document.getElementById("statgaintxt").textContent = document.getElementById("statgaintxt").textContent + v + ` = ` + Math.floor(statGain[v] *100)/100 + `, `
+            }
+
+            document.getElementById("btnstext").textContent = 'buttons clicked: ';
+
+            for (let v in buttonsClicked) {
+                document.getElementById("btnstext").textContent = document.getElementById("btnstext").textContent + v + ` = ` + Math.floor(buttonsClicked[v]) + `, `
+            }
+
+            document.getElementById("counter").textContent = 'money: ' + Math.floor(money) + '/' + maxmoney;
+
+            if(hapiness > 0){
+                document.getElementById("counter").textContent = document.getElementById("counter").textContent + ', happiness: ' + Math.floor(hapiness)
+            }
+
+            if(wood > 0){
+                document.getElementById("counter").textContent = document.getElementById("counter").textContent + ', wood: ' + Math.floor(wood)
+            }
+        }
+
+        createNewMarketButton("buy a cat 5$", "Cat")
+        createNewMarketButton("buy chest 10$", "Chest")
+        createNewMarketButton("buy worker 50$", "Worker")
+        createNewMarketButton("buy forest 500$", "Forest")
+
+        createNewMarketButton("click me", "Click me", "ability")
+
+        function createNewMarketButton(text, itemName, tab) {
+            let btn = document.createElement("button");
+
+            btn.textContent = text;
+
+            btn.onclick = function() {
+                buttonEffect(itemName, btn);
+            };
+
+            document.getElementById("shop").appendChild(btn);
+
+            if(tab == "ability"){
+                document.getElementById("abilities").appendChild(btn);
+            }
+        }
+
+        setInterval(function() {
+            for (let v in statGain) {
+                window[v] += (statGain[v] /100);
+            }
+
+            gameCheck();
+        }, 10);
+    </script>
+</body>
